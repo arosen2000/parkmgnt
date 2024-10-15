@@ -1,0 +1,55 @@
+.ag-theme-alpine {
+  --ag-font-size: 10px;
+  --ag-grid-size: 3px;
+  --ag-list-item-height: 20px;
+}
+.ag-theme-alpine .ag-header-cell,
+.ag-theme-alpine .ag-header-group-cell {
+  padding-left: 1px !important;
+  padding-right: 0px !important;
+  --ag-borders: none;
+  --ag-row-border-style: dashed;
+  --ag-row-border-width: 5px;
+  --ag-row-border-color: rgb(150, 150, 200);
+  --ag-col-border-width: 5px;
+  --ag-cell-horizontal-border: solid white;
+}
+.ag-header-cell-label {
+  justify-content: center;
+}
+.green-cell {
+  background-color: rgb(113, 210, 113);
+  --ag-cell-horizontal-border: solid rgb(238, 121, 228);
+}
+.grey-cell {
+  background-color: grey;
+  --ag-cell-horizontal-border: solid rgb(238, 121, 228);
+}
+.yellow-cell {
+  background-color: yellow;
+  --ag-cell-horizontal-border: solid rgb(238, 121, 228);
+}
+.purple-cell {
+  background-color: rgb(187, 114, 236);
+  --ag-cell-horizontal-border: solid rgb(238, 121, 228);
+}
+.blue-cell {
+  background-color: rgb(152, 152, 238);
+  --ag-cell-horizontal-border: solid rgb(238, 121, 228);
+}
+
+.custom-tooltip {
+  font-size: 12px;
+  padding: 5px;
+  color: var(--ag-foreground-color);
+  background-color: #7a90c6;
+}
+
+.custom-tooltip p {
+  margin: 5px;
+  white-space: nowrap;
+}
+
+.custom-tooltip p:first-of-type {
+  font-weight: bold;
+}

@@ -1,0 +1,70 @@
+import React from "react";
+import { getSheetsData } from "../_lib/readSheet";
+
+import SchedulesC from "./schedulesc";
+//import { useState } from "react";
+/*import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableColumn,
+  TableRow,
+  TableCell,
+} from "@nextui-org/react";
+ */
+
+/*
+export const getServerSideProps = async () => {
+  const response = await getSheetsData();
+  const data = response;
+  console.log(data);
+
+  return {
+    props: {
+      data,
+    },
+  };
+};
+*/
+type ResType = {
+  Date: String;
+  EndTm: String;
+  CourtID: String;
+  UsageGroupName: String;
+  ReservationType: String;
+  Party: String;
+  ReservationState: String;
+  Notes: String;
+  TransMsg: String;
+  TransDate: String;
+  DayOfWk: String;
+  RuleNum: String;
+  instructor: String;
+};
+
+export default async function Page() {
+  //const [data, setData] = useState(await getSheetsData());
+  let resMap: Map<string, ResType> = new Map<string, ResType>();
+  resMap = await getSheetsData();
+  console.log("in schedules");
+  console.log(resMap);
+  /*
+  const valsArr = Array.from(resMap.values());
+  console.log("valsArr=", valsArr);
+  var hdr = Object.keys(valsArr[0]);
+  console.log("hdr=", hdr.join(","));
+  */
+  //var hdr = valsArr[0].keys();
+  //const ResObj = { valsArr: valsArr, hdr: hdr };
+  return (
+    <main className="text-center pt-32 px-5">
+      <h1 className="text-4xl md:text-5xl font-bold mb-5 ">
+        welcome to schedules page
+      </h1>
+      <div>
+        <h1>Data from Apps Script</h1>
+        <SchedulesC ResMap={resMap} />
+      </div>
+    </main>
+  );
+}
