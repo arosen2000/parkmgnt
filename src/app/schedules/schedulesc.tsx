@@ -187,12 +187,12 @@ const bad_CellClicked = (
   if (s.value !== "") {
     let key = `${s.colDef.field}key`;
     let reskey = s.data[key];
-    console.log(`value=${s.value}, key=${key}, reskey=${reskey}`);
+    //console.log(`value=${s.value}, key=${key}, reskey=${reskey}`);
     var resRow = gResMap.get(reskey);
-    console.log(`resRow=${JSON.stringify(resRow)}`);
+    //console.log(`resRow=${JSON.stringify(resRow)}`);
     //const { isOpen, onOpen, onOpenChange } = useDisclosure();
   }
-  console.log(`s.value=${s.value}`);
+  //console.log(`s.value=${s.value}`);
   return (
     <>
       <CellPopover ResRow={resRow} />
@@ -209,11 +209,11 @@ const bad_ReserveStateRender = (s: {
   if (s.value !== "") {
     let key = `${s.colDef.field}key`;
     let reskey = s.data[key];
-    console.log(`value=${s.value}, key=${key}, reskey=${reskey}`);
+    //console.log(`value=${s.value}, key=${key}, reskey=${reskey}`);
     var resRow = gResMap.get(reskey);
   }
   if (s.value === "Park Instruction") {
-    console.log(s.data);
+    //console.log(s.data);
     return (
       <>
         <IconContext.Provider value={{ color: "blue", size: "20px" }}>
@@ -257,7 +257,7 @@ const bad_CustTooltip = (s: {
   if (s.value !== "") {
     let key = `${s.colDef.field}key`;
     let reskey = s.data[key];
-    console.log(`value=${s.value}, key=${key}, reskey=${reskey}`);
+    //console.log(`value=${s.value}, key=${key}, reskey=${reskey}`);
     var resRow = gResMap.get(reskey);
     let msg = `Ct: ${resRow.CourtID} ${resRow.UsageGroupName} on ${resRow.Date} @ ${resRow.StartTm} --${resRow.instructor}`;
     return (
@@ -299,12 +299,12 @@ const CellClicked = (
   if (s.value !== "") {
     let key = `${s.colDef.field}key`;
     let reskey = s.data[key];
-    console.log(`value=${s.value}, key=${key}, reskey=${reskey}`);
+    //console.log(`value=${s.value}, key=${key}, reskey=${reskey}`);
     var resRow = gResMap.get(reskey);
-    console.log(`resRow=${JSON.stringify(resRow)}`);
+    //console.log(`resRow=${JSON.stringify(resRow)}`);
     //const { isOpen, onOpen, onOpenChange } = useDisclosure();
   }
-  console.log(`s.value=${s.value}`);
+  //console.log(`s.value=${s.value}`);
   return (
     <>
       <CellPopover ResRow={resRow} />
@@ -319,23 +319,27 @@ const ReserveStateRender = (s: {
   colDef: any;
   search: string;
 }) => {
+  /*
   console.log(
     `ReserveStateRender: s.value=${s.value}, search=${
       s.search ?? ""
     }, s.data=${JSON.stringify(s.data)}`
   );
+  */
   if (s.value !== "") {
     let key = `${s.colDef.field}key`;
     let reskey = s.data[key];
+    /*
     console.log(
       `value=${JSON.stringify(
         s.value
       )}, key=${key}, reskey=${reskey}, s.search=${s.search ?? ""}`
     );
+    */
     var resRow = gResMap.get(reskey);
   }
   if (s.value === "Park Instruction") {
-    console.log(s.data);
+    //console.log(s.data);
     return (
       <>
         <IconContext.Provider value={{ color: "blue", size: "20px" }}>
@@ -377,12 +381,12 @@ const CustTooltip = (s: {
   colDef: any;
   context: any;
 }) => {
-  console.log(`in CustTooltip`);
+  //console.log(`in CustTooltip`);
 
   //console.log(`, s.value=${JSON.stringify(s.value)}`);
   //console.log(` s.column=${JSON.stringify(s.column)}`);
-  console.log(`s.data=${JSON.stringify(s.data)}`);
-  console.log(`s.colDef=${JSON.stringify(s.colDef)}`);
+  //console.log(`s.data=${JSON.stringify(s.data)}`);
+  //console.log(`s.colDef=${JSON.stringify(s.colDef)}`);
 
   if (s.value !== "") {
     let field = s.colDef.field;
@@ -391,8 +395,8 @@ const CustTooltip = (s: {
     let msg = s.data.msgMap.get(`${field}`)?.msg ?? "";
     let msgHdr = s.data.msgMap.get(`${field}`)?.msgHdr ?? "";
 
-    console.log(`msg=${msg}`);
-    console.log(`msgHdr=${msgHdr}`);
+    //console.log(`msg=${msg}`);
+    //console.log(`msgHdr=${msgHdr}`);
     /*
     let key = `${s.colDef.field}key`;
     let reskey = s.data[key];
@@ -461,9 +465,9 @@ const BuildAgRpt = (): AGGridtype => {
         var dataKey = `${Dt.toLocaleDateString(
           "en-US"
         )}_${hours.toString()}_${court}`;
-        console.log(`dataKey=${dataKey}`);
+        //console.log(`dataKey=${dataKey}`);
         var resRow = gResMap.get(dataKey);
-        console.log(`resRow=${JSON.stringify(resRow)}`);
+        //console.log(`resRow=${JSON.stringify(resRow)}`);
         if (resRow != null) {
           const startTmI = parseInt(resRow!.StartTm as string);
           const startTm =
@@ -532,19 +536,19 @@ const BuildAgRpt = (): AGGridtype => {
 
       rec.cellClassRules = {
         "green-cell": (s: { value: any }) => {
-          console.log(`s=${JSON.stringify(s.value)}`);
+          //console.log(`s=${JSON.stringify(s.value)}`);
           return s.value.includes("free");
         },
         "blue-cell": (s: { value: any }) => {
-          console.log(`s=${JSON.stringify(s.value)}`);
+          //console.log(`s=${JSON.stringify(s.value)}`);
           return s.value.includes("Class Instruction");
         },
         "purple-cell": (s: { value: any }) => {
-          console.log(`s=${JSON.stringify(s.value)}`);
+          //console.log(`s=${JSON.stringify(s.value)}`);
           return s.value.includes("Park Instruction");
         },
         "yellow-cell": (s: { value: any }) => {
-          console.log(`s=${JSON.stringify(s.value)}`);
+          //console.log(`s=${JSON.stringify(s.value)}`);
           return s.value.includes("Res");
         },
       };
@@ -795,7 +799,7 @@ const SchedulesC: React.FC<SchedulesCProps> = ({ ResMap }) => {
   );
 
   const handleDateInput = (e: any) => {
-    console.log(`e=${JSON.stringify(e)}`);
+    //console.log(`e=${JSON.stringify(e)}`);
     //const cal=new Date(e.target.value);
     const caldt = `${e["month"]}/${e["day"]}/${e["year"]}`;
     setInputDate(caldt);
@@ -838,7 +842,7 @@ const SchedulesC: React.FC<SchedulesCProps> = ({ ResMap }) => {
 
   //const [searchInput, setSearchInput] = useState<string>("");
   const handleSearchInput = debounce((e: any) => {
-    console.log(`e=${JSON.stringify(e.target.value)}`);
+    //console.log(`e=${JSON.stringify(e.target.value)}`);
     setSearchInput(e.target.value);
     /*
     const upd_genColDefs = colDefs.map((rec: any) => {

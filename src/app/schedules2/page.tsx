@@ -45,8 +45,8 @@ type ResType = {
 
 export default async function Page() {
   let resMap = await getSheetsData();
-  console.log("in schedules");
-  console.log(resMap);
+  //console.log("in schedules");
+  //console.log(resMap);
 
   return (
     <main className="text-center pt-32 px-5">

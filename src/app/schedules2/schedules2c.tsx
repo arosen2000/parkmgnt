@@ -201,12 +201,12 @@ const CellClicked = (
   if (s.value !== "") {
     let key = `${s.colDef.field}key`;
     let reskey = s.data[key];
-    console.log(`CellClicked: value=${s.value}, key=${key}, reskey=${reskey}`);
+    //console.log(`CellClicked: value=${s.value}, key=${key}, reskey=${reskey}`);
     var resRow = gResMap.get(reskey);
-    console.log(`CellClicked: resRow=${JSON.stringify(resRow)}`);
+    //console.log(`CellClicked: resRow=${JSON.stringify(resRow)}`);
     //const { isOpen, onOpen, onOpenChange } = useDisclosure();
   }
-  console.log(`CellClicked: s.value=${s.value}`);
+  //console.log(`CellClicked: s.value=${s.value}`);
   return (
     <>
       <CellPopover ResRow={resRow} />
@@ -223,13 +223,15 @@ const ReserveStateRender = (s: {
   if (s.value !== "") {
     let key = `${s.colDef.field}key`;
     let reskey = s.data[key];
+    /*
     console.log(
       `ResserveStateRender: value=${s.value}, key=${key}, reskey=${reskey}`
     );
+    */
     var resRow = gResMap.get(reskey);
   }
   if (s.value === "Park Instruction") {
-    console.log(s.data);
+    //console.log(s.data);
     return (
       <>
         <IconContext.Provider value={{ color: "blue", size: "20px" }}>
@@ -273,11 +275,13 @@ const CustTooltip = (s: {
   if (s.value !== "") {
     let key = `${s.colDef.field}key`;
     var resRow = s.data.resRowKey;
+    /*
     console.log(
       `CustTooltip: value=${s.value}, key=${key}, resRow=${JSON.stringify(
         resRow
       )}`
     );
+    */
     //var resRow = gResMap.get(reskey);
     let msg = `${resRow.CourtID} ${resRow.UsageGroupName} on ${resRow.Date} @ ${
       resRow.StartTm < 10 ? "0" : ""
@@ -323,7 +327,7 @@ const Schedules2C: React.FC<SchedulesCProps> = ({ ResMap }) => {
   //console.log("in schedules");
   ///console.log(data);
   //const valsArr = Array.from(data.values());
-  console.log("in schedulesc");
+  console.log("in schedules2c");
   //console.log("valsArr=", ResObj.valsArr);
   //console.log("hdr=", hdr);
   //console.log("valsArr=", valsArr);
@@ -343,9 +347,9 @@ const Schedules2C: React.FC<SchedulesCProps> = ({ ResMap }) => {
         var dataKey = `${Dt.toLocaleDateString(
           "en-US"
         )}_${hours.toString()}_${court}`;
-        console.log(`dataKey=${dataKey}`);
+        //console.log(`dataKey=${dataKey}`);
         var resRow = ResMap.get(dataKey);
-        console.log(`resRow=${JSON.stringify(resRow)}`);
+        //console.log(`resRow=${JSON.stringify(resRow)}`);
         if (resRow != null) {
           const startTmI = parseInt(resRow!.StartTm as string);
           const startTm =
@@ -387,7 +391,7 @@ const Schedules2C: React.FC<SchedulesCProps> = ({ ResMap }) => {
   var tCourts = ["T1", "T2", "T3", "T4", "T5", "T6"];
 
   var displayArr = Array.from(rptRowMap.values());
-  console.log("displayArr=", displayArr);
+  //console.log("displayArr=", displayArr);
 
   const [rowData, setRowData] = useState(displayArr);
 
@@ -427,19 +431,19 @@ const Schedules2C: React.FC<SchedulesCProps> = ({ ResMap }) => {
 
       rec.cellClassRules = {
         "green-cell": (s: { value: any }) => {
-          console.log(`s=${JSON.stringify(s.value)}`);
+          //console.log(`s=${JSON.stringify(s.value)}`);
           return s.value.includes("free");
         },
         "blue-cell": (s: { value: any }) => {
-          console.log(`s=${JSON.stringify(s.value)}`);
+          //console.log(`s=${JSON.stringify(s.value)}`);
           return s.value.includes("Class Instruction");
         },
         "purple-cell": (s: { value: any }) => {
-          console.log(`s=${JSON.stringify(s.value)}`);
+          //console.log(`s=${JSON.stringify(s.value)}`);
           return s.value.includes("Park Instruction");
         },
         "yellow-cell": (s: { value: any }) => {
-          console.log(`s=${JSON.stringify(s.value)}`);
+          //console.log(`s=${JSON.stringify(s.value)}`);
           return s.value.includes("Res");
         },
       };
@@ -487,7 +491,7 @@ const Schedules2C: React.FC<SchedulesCProps> = ({ ResMap }) => {
   );
 
   const handleDateInput = (e: any) => {
-    console.log(`e=${JSON.stringify(e)}`);
+    //console.log(`e=${JSON.stringify(e)}`);
     //const cal=new Date(e.target.value);
     const caldt = `${e["month"]}/${e["day"]}/${e["year"]}`;
     setInputDate(caldt);
@@ -522,7 +526,7 @@ const Schedules2C: React.FC<SchedulesCProps> = ({ ResMap }) => {
 
   const [searchInput, setSearchInput] = useState<string>("");
   const handleSearchInput = (e: any) => {
-    console.log(`e=${JSON.stringify(e.target.value)}`);
+    //console.log(`e=${JSON.stringify(e.target.value)}`);
     setSearchInput(e.target.value);
   };
   return (
