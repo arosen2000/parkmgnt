@@ -36,8 +36,10 @@ type ResType = {
 export const getSheetsData = async () => {
   const auth = new google.auth.GoogleAuth({
     credentials: {
-      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+      //client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      //private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+      client_email: process.env.google_service_account_email,
+      private_key: process.env.google_private_key.replace(/\\n/g, "\n"),
     },
     scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
   });
@@ -48,7 +50,8 @@ export const getSheetsData = async () => {
 
   try {
     const res = await sheets.spreadsheets.values.get({
-      spreadsheetId: process.env.SHEETS_ID,
+      //spreadsheetId: process.env.SHEETS_ID,
+      spreadsheetId: process.env.sheets_id,
       range: "Reservations!A1:N",
     });
     //console.log("sheets data:", res.data.values);
