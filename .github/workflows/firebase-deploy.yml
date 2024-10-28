@@ -9,10 +9,10 @@ on:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    steps:
+    steps: 
+    
       - name: Checkout Repo
         uses: actions/checkout@v4
-      
       - name: set up node.js
         uses: actions/setup-node@v3
         with: 
