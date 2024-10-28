@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -name: checkout Repo
-       uses: actions/checkout@v3
+       uses: actions/checkout@v4
 
       -name: set up node.js
        uses: actions/setup-node@v3
@@ -26,6 +26,7 @@ jobs:
        run: npm install -g firebase-tools
 
       -name: Build 
+
        env:
           #projectId: your-firebase-project-id
           apiKey: ${{ secrets.FIREBASE_API_KEY }}
@@ -43,5 +44,12 @@ jobs:
           google_private_key: ${{ secrets.GOOGLE_PRIVATE_KEY }}
           sheets_id: ${{ secrets.SHEETS_ID }}
        run: CI=false npm run build
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{secrets.GITHUB_TOKEN}}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PARK_MANAGEMENT_907CB }}
+          channelId: live
+          projectId: park-management-907cb
+
         
       
