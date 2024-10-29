@@ -49,5 +49,7 @@ jobs:
           
       
       - name: Build
+          with:
+          args: deploy --only hosting
         run: npm run build
         
