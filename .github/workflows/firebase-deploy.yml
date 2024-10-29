@@ -46,9 +46,9 @@ jobs:
           google_private_key: ${{ secrets.GOOGLE_PRIVATE_KEY }}
           sheets_id: ${{ secrets.SHEETS_ID }}
 
-      - uses: firebase/actions-firebase-cli@v2
-        with:
-          args: deploy --only hosting
+      #- uses: firebase/actions-firebase-cli@v2
+      #  with:
+      #    args: deploy --only hosting
 
       - run:
           firebase login --no-interactive --token ${{ secrets.FIREBASE_TOKEN }}
