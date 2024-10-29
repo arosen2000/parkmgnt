@@ -50,4 +50,7 @@ jobs:
         with:
           args: deploy --only hosting
 
-      - run: npm run build
+      - run:
+          firebase login --no-interactive --token ${{ secrets.FIREBASE_TOKEN }}
+          firebase deploy --only hosting
+          npm run build
