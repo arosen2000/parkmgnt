@@ -26,6 +26,12 @@ jobs:
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
 
+      - name: build app
+        run:
+          firebase login --no-interactive --token ${{ secrets.FIREBASE_TOKEN }}
+          firebase deploy --only hosting
+          npm run build
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{secrets.GITHUB_TOKEN}}
