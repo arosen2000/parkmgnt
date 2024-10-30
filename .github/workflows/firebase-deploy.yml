@@ -28,7 +28,7 @@ jobs:
 
       - name: build app
         run:
-          firebase login --no-interactive --token ${{ secrets.FIREBASE_TOKEN }}
+          firebase login --non-interactive --token ${{ secrets.FIREBASE_TOKEN }}
           firebase deploy --only hosting
           npm run build
 
